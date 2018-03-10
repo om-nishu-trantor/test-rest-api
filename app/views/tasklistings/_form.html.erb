@@ -1,0 +1,27 @@
+<%= form_with(model: tasklisting, local: true) do |form| %>
+  <% if tasklisting.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tasklisting.errors.count, "error") %> prohibited this tasklisting from being saved:</h2>
+
+      <ul>
+      <% tasklisting.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :tasklisting_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :count %>
+    <%= form.number_field :count, id: :tasklisting_count %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
