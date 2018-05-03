@@ -13,13 +13,19 @@ pipeline {
                  sh 'echo "Start Build Project"'
              }
          }
+          
+         stage('Run Test') {
+             steps {
+                 sh 'echo "Start Test Project"'
+             }
+         }
 
          stage('Deploy - Develop') {
              when {
                branch "develop"
             }
              steps {
-                 sh 'echo deploying $APP_NAME to production'
+                 sh 'echo deploying $APP_NAME to development'
              }             
          }
           
