@@ -14,6 +14,15 @@ pipeline {
              }
          }
 
+         stage('Deploy - Develop') {
+             when {
+               branch "develop"
+            }
+             steps {
+                 sh 'echo deploying $APP_NAME to production'
+             }             
+         }
+          
          stage('Deploy - QA') {
              when {
                branch "qa"
