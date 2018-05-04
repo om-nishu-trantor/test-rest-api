@@ -5,7 +5,7 @@ pipeline {
          stage('checkout Project') {
              steps {
                 checkout scm
-                sh 'decho "Start Checkout Project"'
+                sh 'echo "Start Checkout Project"'
              }             
          }
 
@@ -50,7 +50,7 @@ pipeline {
      }
      
      post {
-         changed {
+         success {
              mail to: 'dilkhush.soni@trantorinc.com',
                   subject: "$DEFAULT_SUBJECT",
                   body: "$DEFAULT_CONTENT"
