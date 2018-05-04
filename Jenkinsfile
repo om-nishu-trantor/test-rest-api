@@ -48,6 +48,14 @@ pipeline {
              }             
          }
      }
+     
+     post {
+         changed {
+             mail to: 'dilkhush.soni@trantorinc.com',
+                  subject: "$DEFAULT_SUBJECT",
+                  body: "$DEFAULT_CONTENT"
+         }
+     }
 
      environment {
         APP_NAME = 'my-app'
