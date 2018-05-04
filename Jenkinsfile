@@ -1,5 +1,8 @@
 pipeline {
      agent any
+     
+     properties([pipelineTriggers([[$class: 'GitHubPushTrigger'], pollSCM('H/15 * * * *')])])
+
      stages {
          stage('checkout Project') {
              steps {
