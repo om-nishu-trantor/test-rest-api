@@ -50,11 +50,18 @@ pipeline {
      }
      
      post {
-         success {
-             mail to: 'dilkhush.soni@trantorinc.com',
-                  subject: "$DEFAULT_SUBJECT",
-                  body: "$DEFAULT_CONTENT"
-         }
+         
+          success {
+               mail to: 'dilkhush.soni@trantorinc.com',
+                    subject: "$DEFAULT_SUBJECT",
+                    body: "The pipeline ${currentBuild.fullDisplayName} completed successfully."
+          }
+          
+          failure {
+               mail to: 'dilkhush.soni@trantorinc.com',
+                    subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
+                    body: "Something is wrong with ${env.BUILD_URL}"
+          }
      }
 
      environment {
