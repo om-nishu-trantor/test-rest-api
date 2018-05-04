@@ -53,7 +53,7 @@ pipeline {
          
           success {
                mail to: 'dilkhush.soni@trantorinc.com',
-                    subject: "$DEFAULT_SUBJECT",
+                    subject: "The pipeline ${currentBuild.fullDisplayName} completed successfully",
                     body: "The pipeline ${currentBuild.fullDisplayName} completed successfully."
           }
           
