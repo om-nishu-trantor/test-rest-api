@@ -5,7 +5,7 @@ pipeline {
          stage('checkout Project') {
              steps {
                 checkout scm
-                sh 'decho "Start Checkout Project"'
+                sh 'echo "Start Checkout Project"'
              }             
          }
 
@@ -52,19 +52,19 @@ pipeline {
      post {
          
           success {
-               mail to: 'dilkhush.soni@trantorinc.com',
+               mail to: 'nishutosh.sharma@trantorinc.com',
                     subject: "The pipeline ${currentBuild.fullDisplayName} completed successfully",
                     body: "The pipeline ${currentBuild.fullDisplayName} completed successfully."
           }
           
           failure {
-               mail to: 'dilkhush.soni@trantorinc.com',
+               mail to: 'nishutosh.sharma@trantorinc.com',
                     subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
                     body: "Something is wrong with ${env.BUILD_URL}"
           }
      }
 
      environment {
-        APP_NAME = 'my-app'
+        APP_NAME = 'demo1'
      }
 }
