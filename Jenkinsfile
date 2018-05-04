@@ -5,7 +5,7 @@ pipeline {
          stage('checkout Project') {
              steps {
                 checkout scm
-                sh 'echo "Start Checkout Project"'
+                sh 'decho "Start Checkout Project"'
              }             
          }
 
