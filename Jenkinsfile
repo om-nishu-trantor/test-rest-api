@@ -1,4 +1,7 @@
 pipeline {
+     
+     checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/om-nishu-trantor/test-rest-api.git']]])
+
      agent any
 
      stages {
