@@ -1,6 +1,8 @@
 pipeline {
      
-     git poll: true, url: 'https://github.com/om-nishu-trantor/test-rest-api'
+     properties {
+          checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/om-nishu-trantor/test-rest-api.git']]])
+     }
 
      agent any
 
