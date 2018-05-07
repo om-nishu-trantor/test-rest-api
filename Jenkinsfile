@@ -68,6 +68,6 @@ pipeline {
      }
 
      environment {
-        APP_NAME = 'demo1'
+        APP_NAME = 'multibranch-pipeline1'
      }
 }
