@@ -5,13 +5,7 @@ pipeline {
      triggers { pollSCM('H */4 * * 1-5') }
 
      stages {
-          checkout([$class: 'GitSCM', 
-              branches: [[name: '*/master']], 
-              doGenerateSubmoduleConfigurations: false, 
-              extensions: [], 
-              submoduleCfg: [], 
-              userRemoteConfigs: [[]]
-          ])
+          checkout([$class: 'GitSCM', branches: [[name: '**']], browser: [$class: 'GitWeb', repoUrl: 'https://github.com/om-nishu-trantor/test-rest-api.git'], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/om-nishu-trantor/test-rest-api.git']]])
 
          stage('checkout Project') {
              steps {
