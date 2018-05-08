@@ -2,7 +2,9 @@ pipeline {
      
      agent any
      
-     checkout([$class: 'GitSCM', branches: [[name: '**']], browser: [$class: 'GitWeb', repoUrl: 'https://github.com/om-nishu-trantor/test-rest-api.git'], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/om-nishu-trantor/test-rest-api.git']]])
+     triggers {
+        pollSCM('0 0 * * 0')
+    }
 
      stages {
          stage('checkout Project') {
