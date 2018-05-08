@@ -1,14 +1,13 @@
 pipeline {
-     
      agent any
      
      triggers {
-        pollSCM('0 0 * * 0')
-    }
-
+          cron('H */4 * * 1-5')
+     }
      stages {
          stage('checkout Project') {
              steps {
+                checkout scm
                 sh 'echo "Start Checkout Project"'
              }             
          }
@@ -18,19 +17,13 @@ pipeline {
                  sh 'echo "Start Build Project"'
              }
          }
-          
-         stage('Run Test') {
-             steps {
-                 sh 'echo "Start Test Project"'
-             }
-         }
 
          stage('Deploy - Develop') {
              when {
                branch "develop"
             }
              steps {
-                 sh 'echo deploying $APP_NAME to development'
+                 sh 'echo deploying $APP_NAME to production'
              }             
          }
           
@@ -52,23 +45,8 @@ pipeline {
              }             
          }
      }
-     
-     post {
-         
-          success {
-               mail to: 'nishutosh.sharma@trantorinc.com',
-                    subject: "The pipeline ${currentBuild.fullDisplayName} completed successfully",
-                    body: "The pipeline ${currentBuild.fullDisplayName} completed successfully."
-          }
-          
-          failure {
-               mail to: 'nishutosh.sharma@trantorinc.com',
-                    subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
-                    body: "Something is wrong with ${env.BUILD_URL}"
-          }
-     }
 
      environment {
-        APP_NAME = 'multibranch-pipeline1'
+        APP_NAME = 'my-app'
      }
 }
