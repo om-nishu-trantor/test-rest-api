@@ -1,13 +1,20 @@
 pipeline {
      
      agent any
-     
+          
      triggers { pollSCM('H */4 * * 1-5') }
 
      stages {
+          checkout([$class: 'GitSCM', 
+              branches: [[name: '*/master']], 
+              doGenerateSubmoduleConfigurations: false, 
+              extensions: [], 
+              submoduleCfg: [], 
+              userRemoteConfigs: [[]]
+          ])
+
          stage('checkout Project') {
              steps {
-                checkout scm
                 sh 'echo "Start Checkout Project"'
              }             
          }
