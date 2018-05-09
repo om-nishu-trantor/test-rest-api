@@ -11,7 +11,8 @@ cd $WORKSPACE
 
 # If ruby version is not installed, install it
 if ! ruby -v &> /dev/null; then
-  source ~/.rvm/scripts/rvm && rvm install 'cat .ruby-version'
+  rvm list
+#   source ~/.rvm/scripts/rvm && rvm install 'cat .ruby-version'
 fi
 
 # Install necessary version of bundler
