@@ -1,16 +1,6 @@
 pipeline {
      agent any
      
-     scm {
-          git {
-               remote {
-                    github('om-nishu-trantor/test-rest-api')
-                    refspec('+refs/pull/*:refs/remotes/origin/pr/*')
-               }
-               branch('${sha1}')
-          }
-     }
-     
      triggers {
           pollSCM('H/10 * * * 1-5')
           githubPullRequest {
