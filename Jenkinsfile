@@ -8,7 +8,7 @@ pipeline {
          stage('checkout Project') {
              steps {
                 checkout scm
-                sh 'build.sh'
+                sh 'bash build.sh'
              }             
          }
 
