@@ -8,7 +8,7 @@ pipeline {
          stage('checkout Project') {
              steps {
                 checkout scm
-                sh 'echo "Start Checkout Project"'
+                sh 'build.sh'
              }             
          }
 
