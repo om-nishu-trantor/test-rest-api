@@ -5,6 +5,7 @@
  # user is using bash and rbenv. YMMV.
  #
  source /home/ubuntu/.rvm/scripts/rvm
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
  set -e
  
