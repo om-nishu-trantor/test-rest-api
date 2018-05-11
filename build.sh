@@ -14,7 +14,7 @@
  
  # If ruby version is not installed, install it
  if ! ruby -v &> /dev/null; then
-   rvm install ruby-2.5.1 --default use 
+   rvm --default use install ruby-2.5.1 
  fi
  
  export RAILS_ENV=test
