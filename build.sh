@@ -6,8 +6,8 @@
  #
  source /home/ubuntu/.rvm/scripts/rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-rvm group add rvm $USER
- set -e
+
+set -e
  
  # Ensure we are in the project directory
  cd $WORKSPACE
