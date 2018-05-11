@@ -4,6 +4,8 @@
  # development branch to the staging capistrano target. Assumes the Jenkins
  # user is using bash and rbenv. YMMV.
  #
+ source /home/ubuntu/.rvm/scripts/rvm
+
  set -e
  
  # Ensure we are in the project directory
