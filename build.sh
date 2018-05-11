@@ -14,8 +14,10 @@
  
  # If ruby version is not installed, install it
  if ! ruby -v &> /dev/null; then
-   rvm install --default use 'cat .ruby-version'
+   rvm install ruby-2.5.1 --default use 
  fi
+ 
+ export RAILS_ENV=test
  
  # Install necessary version of bundler
  bundler_version=`ruby -e 'puts $<.read[/BUNDLED WITH\n   (\S)$/, 1] || "<1.10"' Gemfile.lock`
