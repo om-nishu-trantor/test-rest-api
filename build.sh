@@ -26,7 +26,6 @@ set -e
  
  # Set up local config
  cp config/database.example.yml config/database.yml
- cp example.env .env
  
  bundle install --deployment --retry=3
  bundle exec rake db:drop || true
