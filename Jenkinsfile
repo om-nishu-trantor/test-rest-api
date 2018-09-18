@@ -5,10 +5,17 @@ pipeline {
           pollSCM('H/10 * * * 1-5')
      }
      stages {
+         
+         stage('Install Infrastructure') {
+             steps {
+                    sh 'echo "bash build.sh"'
+             }             
+         }
+         
          stage('checkout Project') {
              steps {
                 checkout scm
-                sh 'echo "Start Checkout Project"'
+                sh 'echo "checkout app"'
              }             
          }
 
